@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+
+void countdown(int minutes) {
+    int seconds = minutes * 60;
+    int i;
+
+    for (i = seconds; i > 0; i--) {
+        system("clear");  // 清除终端屏幕（适用于Linux和macOS）
+        // system("cls"); // 适用于Windows系统
+
+        printf("Focus Timer\n");
+        printf("Time remaining: %02d:%02d\n", i / 60, i % 60);
+        sleep(1);  // 暂停1秒
+    }
+
+    printf("Time's up! Take a break.\n");
+}
+
+int main() {
+    int minutes;
+
+    printf("Enter the duration (in minutes): ");
+    scanf("%d", &minutes);
+
+    countdown(minutes);
+
+    return 0;
+}
